@@ -55,14 +55,16 @@ app.post('/admin/registerDoc', (req, res) => admin.handleRegisterDoc(req, res, d
 //Routes for handleing Patient related activities, forwarded to  -> patient.js 
 app.get('/patient/searchDoc', (req, res) => patient.handleSearchDoc(req, res, db));
 app.post('/patient/bookAppointment', (req, res) => patient.handleBookAppointment(req, res, db));
-app.get('/patient/getAppointments/:id', (req, res) => patient.handleGetAppointments(req, res, db))
+app.get('/patient/getAppointments/:id', (req, res) => patient.handleGetAppointments(req, res, db));
+app.post('/patient/sendFeedback', (req, res) => patient.handleSendFeedback(req, res, db));
+app.get('/patient/getFeedback', (req, res) => patient.handleGetFeedback(req, res, db));
 
 
 //Routes for handleing Doctor related activities, forwarded to  -> doctor.js 
 app.get('/doctor/getAppointments/:id', (req, res) => doctor.handleGetAppointments(req, res, db));
 app.delete('/doctor/appointments/notAvailable', (req, res) => doctor.handleNotAvailable(req, res, db));
 app.put('/doctor/editInfo/:id', (req, res) => doctor.handleEditInfo(req, res, db));
-
+app.get('/doctor/getFeedbacks/:doc_name', (req, res) => doctor.handleGetFeedbacks(req, res, db));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -58,9 +58,36 @@ const handleGetAppointments = (req, res, db) => {
         .catch(err => res.json(err))
 }
 
+
+//Store feedback in the database
+//Input: pat_id,doc_name,remark
+//Response: responds with "saved" if everything went right else responds with error
+const handleSendFeedback = (req, res, db) => {
+    const { pat_id, doc_name, remark } = req.body;
+    db.
+        insert({
+            PATIENT_ID: pat_id,
+            DOC_NAME: doc_name,
+            REMARK: remark
+        })
+        .into('feedback')
+        .then(i => res.json('Saved'))
+        .catch(err => res.json(err.sqlMessage));
+}
+
+//Gets the list of all the feedbacks
+//Input: -
+//Response: Array of feedbacks
+const handleGetFeedback = (req, res, db) => {
+    db.select('DOC_NAME', 'REMARK').from('feedback')
+        .then(feeds => res.json(feeds))
+        .catch(err => res.json(err.sqlMessage));
+}
 //Export the functions
 module.exports = {
     handleSearchDoc: handleSearchDoc,
     handleBookAppointment: handleBookAppointment,
     handleGetAppointments: handleGetAppointments,
+    handleSendFeedback: handleSendFeedback,
+    handleGetFeedback: handleGetFeedback
 }

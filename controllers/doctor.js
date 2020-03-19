@@ -59,9 +59,20 @@ const handleEditInfo = (req, res, db) => {
 }
 
 
+//Get response corresponding to the current doc
+//Input: doc_name
+//Response: Array of all the feedbacks
+const handleGetFeedbacks = (req, res, db) => {
+    const { doc_name } = req.params;
+    db.select('REMARK').from('feedback').where({ DOC_NAME: doc_name })
+        .then(feeds => res.json(feeds))
+        .catch(err => res.json(err.sqlMessage));
+}
+
 //Exporting the functions
 module.exports = {
     handleGetAppointments: handleGetAppointments,
     handleNotAvailable: handleNotAvailable,
     handleEditInfo: handleEditInfo,
+    handleGetFeedbacks: handleGetFeedbacks
 }
