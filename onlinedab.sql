@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2020 at 02:44 PM
+-- Generation Time: Mar 19, 2020 at 07:47 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.14
 
@@ -56,6 +56,18 @@ CREATE TABLE `doctorcredentials` (
   `DOC_ID` bigint(20) NOT NULL,
   `NAME` varchar(15) NOT NULL,
   `PASSWORD` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `PATIENT_ID` bigint(20) NOT NULL,
+  `DOC_NAME` varchar(20) NOT NULL,
+  `REMARK` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
