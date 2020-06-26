@@ -1,0 +1,117 @@
+#bkMdlBgd {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 50;
+  /* display: none; */
+}
+
+#bkMdlCnt {
+  height: 320px;
+  width: 500px;
+  background-color: white;
+  margin: 100px auto;
+  z-index: 100;
+  padding: 1em;
+  text-align: left;
+  box-sizing: border-box;
+  border: #85e4e4 5px double;
+}
+
+#bkFrm {
+  line-height: 1.9em;
+}
+
+#bkMdlCnt h2 {
+  text-align: center;
+  margin: 0 0 0.5em 0;
+}
+#bkMdlCnt label {
+  display: inline-block;
+  width: 8ex;
+  font-size: 1em;
+}
+
+#docInfo {
+  font-weight: bolder;
+}
+
+#bkMdlCnt select,
+#bkMdlCnt input {
+  width: 50ex;
+}
+
+#btnGrp {
+  padding: 1.2em;
+  padding-left: 0;
+}
+#confirmApp {
+  background: #85e4e4;
+  padding: 0.7em;
+}
+
+#cancel {
+  background: rgba(212, 0, 0, 0.5);
+  padding: 0.7em;
+  float: right;
+}
+
+#waitDiv {
+  height: 320px;
+  width: 500px;
+  background-color: white;
+  margin: 100px auto;
+  z-index: 150;
+  padding: 1em;
+  text-align: center;
+  box-sizing: border-box;
+  border: #85e4e4 5px double;
+  display: none;
+}
+
+.spinner {
+  position: relative;
+  left: calc(50% - 5em / 2);
+  top: calc(50% - 5em / 2);
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  border-bottom: #85e4e4 5px solid;
+  animation: spin 2s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media all and (max-width: 500px) {
+  #bkMdlCnt,
+  #waitDiv {
+    width: 100%;
+  }
+  #btnGrp {
+    padding: 0.8em;
+    padding-left: 0;
+  }
+  #bkMdlCnt select,
+  #bkMdlCnt input {
+    width: 80%;
+  }
+  #confirmApp {
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
+
+  #cancel {
+    font-size: 0.8em;
+    padding: 0.5em;
+  }
+}

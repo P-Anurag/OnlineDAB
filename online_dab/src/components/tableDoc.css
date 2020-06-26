@@ -1,0 +1,143 @@
+table {
+  display: inline-block;
+  margin: auto;
+  text-align: center;
+}
+
+th {
+  color: white;
+  background-color: black;
+  padding: 0.8em 0.25em;
+  margin: 0 0.5em;
+}
+
+td {
+  padding: 0.5em;
+  text-align: left;
+  font-weight: bold;
+  font-size: 0.8em;
+}
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0.3em;
+  border-radius: 4px;
+  background: transparent;
+}
+
+td button:hover {
+  font-weight: bold;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.valid button {
+  width: 7ex;
+  background-color: #94dfea;
+}
+.invalid button {
+  width: 15ex;
+  background-color: #ff9f9f;
+}
+.book button {
+  width: 15ex;
+  background-color: #94dfea;
+}
+.confirm button {
+  width: 10ex;
+  background-color: #94dfea;
+}
+
+.cancel button {
+  width: 8ex;
+  background-color: #ff9f9f;
+}
+.feedbackCard textarea {
+  box-sizing: border-box;
+  width: 450px;
+  font-size: 1em;
+}
+.feedbackCard {
+  font-size: 1.2em;
+}
+.remarkCol {
+  width: 500px;
+}
+@media all and (max-width: 925px) {
+  th {
+    font-size: 0.8em;
+    padding: 0.8em 0.25em;
+    margin: 0 5px;
+  }
+}
+@media all and (max-width: 870px) {
+  th {
+    font-size: 0.8em;
+    padding: 0.8em 0.25em;
+    margin: 0 5px;
+  }
+}
+@media all and (max-width: 680px) {
+  th {
+    font-size: 0.7em;
+    padding: 0.8em 0.25em;
+    margin: 0 5px;
+  }
+}
+
+@media all and (max-width: 525px) {
+  th {
+    font-size: 0.7em;
+    padding: 0.7em 0.25em;
+    margin: 0 1px;
+  }
+  td {
+    font-size: 0.7em;
+    padding: 0.5em 0.1em;
+  }
+  button {
+    font-size: 1em;
+  }
+  .feedbackCard textarea {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 445px) {
+  th {
+    font-size: 0.7em;
+    padding: 0.6em 0.25em;
+    margin: 0 1px;
+  }
+  td {
+    font-size: 0.6em;
+    padding: 0.5em 0.2em;
+  }
+  tr button {
+    font-size: 1em;
+  }
+  .feedbackCard textarea {
+    width: 270px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  h1 {
+    font-size: 1em;
+  }
+  th {
+    font-size: 0.7em;
+    padding: 0.5em 0.25em;
+    margin: 0 1px;
+  }
+  td {
+    font-size: 0.7em;
+    padding: 0.5em 0.15em;
+  }
+  tr button {
+    font-size: 0.8em;
+  }
+  .feedbackCard textarea {
+    width: 230px;
+  }
+}

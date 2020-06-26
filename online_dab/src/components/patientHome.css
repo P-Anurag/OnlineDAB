@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  width: 100%;
+}
+
+.tableDiv {
+  flex-grow: 7;
+  text-align: center;
+  margin: 1em;
+}
