@@ -8,7 +8,7 @@ There are basically 3 sections implemented in the project:<br />
 2)Doctor section<br />
 3)Patient section<br />
 
-Workflow of the project<br />  
+Workflow of the project 
 -The doctors and patients register themselves in the application.<br />
 -Admin validates the doctors<br />
 -All the valid doctors will be shown to the patients.<br />
