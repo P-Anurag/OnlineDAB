@@ -35,4 +35,4 @@ This project can be run as any other react project
 -Import the SQL file into XAMPP/WAMPP server and start the server.
 -Start the react development server using command "npm start".
 -Start the backend listner using command nodemon "server.js".
--You are all set
+-You are all set.
