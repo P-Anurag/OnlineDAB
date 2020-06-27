@@ -53,8 +53,8 @@ const handleRegisterDoc = (req, res, db) => {
                     //     console.log("reg" + lindex);
                     // })
                     .then((id) => {
-                        console.log(id, id[0]);
-                        console.log("Doc Cre")
+                        // console.log(id, id[0]);
+                        // console.log("Doc Cre")
                         lindex = id[0];
                         return trx
                             .insert({
@@ -68,7 +68,7 @@ const handleRegisterDoc = (req, res, db) => {
                     })
                     .catch(err => { console.log(err.sqlMessage) })
                     .then(id => {
-                        console.log("all " + id);
+                        // console.log("all " + id);
                         return trx
                             .insert({
                                 DOC_ID: lindex,
@@ -110,7 +110,7 @@ const handleRegisterDoc = (req, res, db) => {
 
 
 const handleRegisterDoc_v1 = (req, res, db) => {
-    console.log(req.body)
+    // console.log(req.body)
     const { name, email, number, password, specialization, regNo, location } = req.body;
     var lindex = 0;
     if (name && email && number && password && specialization && regNo && location) {

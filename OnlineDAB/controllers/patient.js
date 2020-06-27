@@ -46,7 +46,11 @@ const handleAvailableTimeSlot = (req, res, db) => {
         .select('TIME')
         .from('appointments')
         .where({ DATE: date, DOC_ID: doc_id })
-        // .catch(err => console.log(err))
+        .union(function () {
+            this.select('TIME')
+                .from('confirmedappointments')
+                .where({ DATE: date, DOC_ID: doc_id })
+        })
         .then(notAvailable => {
             for (let i = 0; i < notAvailable.length; i++) {
                 ntAvailable.push(notAvailable[i].TIME)
@@ -99,11 +103,21 @@ const handleBookAppointment = (req, res, db) => {
 //Response: Array of  {doctor name, time}
 const handleGetAppointments = (req, res, db) => {
     // console.log(req.params.id)
-    db.select('NAME', 'SPECIALIZATION', 'DATE', 'TIME', 'PHONE_NUMBER')
+    return db.select('NAME', 'SPECIALIZATION', 'DATE', 'TIME', 'validdoctor.PHONE_NUMBER')
         .from('validdoctor')
-        .innerJoin('appointments', 'validdoctor.DOC_ID', 'appointments.DOC_ID')
-        .where('appointments.PATIENT_ID', '=', req.params.id)
+        .innerJoin('confirmedappointments', 'validdoctor.DOC_ID', 'confirmedappointments.DOC_ID')
+        .where('confirmedappointments.PATIENT_ID', '=', req.params.id)
+
+        // .union(function () {
+        //     this.select('NAME', 'SPECIALIZATION', 'appointments.DATE', 'appointments.TIME', 'validdoctor.PHONE_NUMBER')
+        //         .from('validdoctor')
+        //         .innerJoin('appointments', 'validdoctor.DOC_ID', 'appointments.DOC_ID')
+        //         .where('appointments.PATIENT_ID', '=', req.params.id)
+        // })
+        .catch(err => console.log(err))
+
         .then(appointments => {
+            // console.log(appointments)
             if (appointments.length) res.json(appointments);
             else res.json("NO");
         })
